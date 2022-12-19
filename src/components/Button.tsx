@@ -5,7 +5,7 @@ interface ButtonProps {
 }
 
 export const Button = styled.button<ButtonProps>`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;

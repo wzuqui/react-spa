@@ -2,6 +2,9 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
+  display: flex;
+  align-items: center;
+
   input {
     position: absolute;
     opacity: 0;
@@ -13,25 +16,25 @@ const Container = styled.div`
   }
 
   label {
-    width: 24px;
-    height: 12px;
+    width: 26px;
+    height: 14px;
     background: #dddddd;
     display: inline-block;
-    border-radius: 12px;
+    border-radius: 14px;
     cursor: pointer;
     position: relative;
 
     &:before {
       content: '';
-      width: 12px;
-      height: 12px;
+      width: 14px;
+      height: 14px;
       border-radius: 50%;
       background-color: #b5b5b5;
       display: inline-block;
       transform: scale(90%);
       position: absolute;
       transition: all 100ms ease-in;
-      right: 12px;
+      right: 14px;
     }
   }
 `;

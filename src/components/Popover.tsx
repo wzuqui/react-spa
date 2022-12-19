@@ -2,8 +2,14 @@ import { useRef, useState } from 'react';
 import styled from 'styled-components';
 import { useClickOutside } from '../hooks/useClickOutside';
 
-export function Popover(props: { trigger: JSX.Element; surface: JSX.Element }) {
-  const { trigger, surface } = props;
+interface PopoverProps {
+  trigger: JSX.Element;
+  overlay: JSX.Element;
+  overlayPosition?: 'right';
+}
+
+export function Popover(props: PopoverProps) {
+  const { trigger, overlay, overlayPosition } = props;
   const [aberto, setAberto] = useState(false);
   const ref = useRef(null);
 
@@ -20,7 +26,7 @@ export function Popover(props: { trigger: JSX.Element; surface: JSX.Element }) {
   return (
     <Container ref={ref}>
       <Trigger onClick={handleClick}>{trigger}</Trigger>
-      {aberto ? <Surface>{surface}</Surface> : null}
+      {aberto ? <Overlay position={overlayPosition}>{overlay}</Overlay> : null}
     </Container>
   );
 }
@@ -28,9 +34,12 @@ export function Popover(props: { trigger: JSX.Element; surface: JSX.Element }) {
 const Container = styled.div`
   position: relative;
 `;
+
 const Trigger = styled.div``;
-const Surface = styled.div`
+
+const Overlay = styled.div<{ position?: 'right' }>`
   position: absolute;
   margin: 0;
   padding: 0;
+  ${(props) => (props.position ? { right: '0px' } : null)}
 `;
