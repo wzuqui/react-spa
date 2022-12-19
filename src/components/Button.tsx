@@ -16,4 +16,12 @@ export const Button = styled.button<ButtonProps>`
       border: '0',
       background: 'transparent',
     }}
+
+  &:hover {
+    filter: opacity(0.8);
+  }
+
+  &:active {
+    filter: grayscale(20%);
+  }
 `;
