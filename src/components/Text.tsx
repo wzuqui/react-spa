@@ -1,3 +1,11 @@
-import styled from 'styled-components';
+import { styled } from '@stitches/react';
 
-export const Text = styled.p``;
+export const Text = styled('p', {
+  variants: {
+    bold: {
+      true: {
+        fontWeight: 'bold',
+      },
+    },
+  },
+});

@@ -1,15 +1,29 @@
-import { Button } from './Button';
+import { styled } from '@stitches/react';
 
 import LogoSvg from '../assets/logo.svg';
+import { Button as ButtonBase } from './Button';
+import { Image as ImageBase } from './Image';
 
 export function ButtonLogo() {
   return (
     <Button
       transparent
-      style={{ marginLeft: 16, marginRight: 16 }}
       title="Logo"
+      type="button"
     >
-      <img src={LogoSvg} alt="Logo" height={24} />
+      <Image
+        src={LogoSvg}
+        alt="Logo"
+      />
     </Button>
   );
 }
+
+const Button = styled(ButtonBase, {
+  marginLeft: 16,
+  marginRight: 16,
+});
+
+const Image = styled(ImageBase, {
+  height: 24,
+});

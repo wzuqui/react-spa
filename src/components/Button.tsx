@@ -1,27 +1,31 @@
-import styled from 'styled-components';
+import { styled } from '@stitches/react';
 
-interface ButtonProps {
-  transparent?: boolean;
-}
+export const Button = styled('button', {
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  overflow: 'hidden',
+  cursor: 'pointer',
 
-export const Button = styled.button<ButtonProps>`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  cursor: pointer;
+  '&:hover': {
+    filter: 'opacity(0.8)',
+  },
 
-  ${(props) =>
-    props.transparent && {
-      border: '0',
-      background: 'transparent',
-    }}
+  '&:active': {
+    filter: 'grayscale(20%)',
+  },
 
-  &:hover {
-    filter: opacity(0.8);
-  }
-
-  &:active {
-    filter: grayscale(20%);
-  }
-`;
+  variants: {
+    color: {
+      red: {
+        color: '#d21c1c',
+      },
+    },
+    transparent: {
+      true: {
+        border: '0',
+        background: 'transparent',
+      },
+    },
+  },
+});
