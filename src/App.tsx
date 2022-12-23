@@ -21,6 +21,7 @@ export function App() {
           <Routes />
         </MainContent>
       </Main>
+      <Footer>{APP_VERSION}</Footer>
     </View>
   );
 }
@@ -29,4 +30,11 @@ const MainContent = styled('div', {
   height: '100%',
   position: 'relative',
   width: '100%',
+});
+
+const Footer = styled('footer', {
+  bottom: 0,
+  fontSize: 12,
+  position: 'fixed',
+  right: 0,
 });
