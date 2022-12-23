@@ -3,10 +3,22 @@ import { styled } from '@stitches/react';
 import MenuSvg from '../assets/menu.svg';
 import { Button as ButtonBase } from './Button';
 
-export function ButtonMenu() {
+interface ButtonMenuProps {
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+export function ButtonMenu(props: ButtonMenuProps) {
   return (
-    <Button transparent title="Menu">
-      <img src={MenuSvg} alt="Menu" />
+    <Button
+      onClick={props.onClick}
+      title="Menu"
+      transparent
+      type="button"
+    >
+      <img
+        src={MenuSvg}
+        alt="Menu"
+      />
     </Button>
   );
 }

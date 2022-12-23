@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Aba } from './components/Aba';
 import { ButtonLogo } from './components/ButtonLogo';
 import { ButtonMenu } from './components/ButtonMenu';
+import { Menu } from './components/Menu';
 import { View } from './components/View';
 import { Header } from './layouts/Header';
 import { Main } from './layouts/Main';
@@ -14,6 +15,7 @@ import { Abas } from './shared/abas';
 
 export function App() {
   const [abas, setAbas] = useState(Abas);
+  const [aberto, setAberto] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -25,6 +27,16 @@ export function App() {
         ativa: p.rota === rota,
       }));
     });
+  }
+
+  function handleButtonMenu(
+    evento: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) {
+    evento.stopPropagation();
+    console.warn(
+      'App:handleButtonMenu problema sério aqui estou tendo que dar stopPropagation por causa da renderização duplicada das rotas'
+    );
+    setAberto(!aberto);
   }
 
   function handleFecharAba(rota: string) {
@@ -49,7 +61,7 @@ export function App() {
     >
       <Header>
         <View gap="8px">
-          <ButtonMenu />
+          <ButtonMenu onClick={handleButtonMenu} />
           <ButtonLogo />
           <View
             style={{
@@ -81,6 +93,10 @@ export function App() {
         full
       >
         <MainContent>
+          <Menu
+            aberto={aberto}
+            acaoFechar={() => setAberto(false)}
+          />
           <Routes />
         </MainContent>
       </Main>
@@ -90,5 +106,6 @@ export function App() {
 
 const MainContent = styled('div', {
   height: '100%',
+  position: 'relative',
   width: '100%',
 });
