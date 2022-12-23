@@ -6,6 +6,8 @@ import UnidadeSvg from '../assets/unidade.svg';
 export const Abas = [
   {
     ativa: true,
+    categoria: null,
+    descricao: null,
     fixo: true,
     icone: PaginaInicialSvg,
     rota: 'pagina-inicial',
@@ -13,6 +15,8 @@ export const Abas = [
   },
   {
     ativa: false,
+    categoria: 'Cadastros',
+    descricao: 'Cadastros de pessoas jurídicas',
     fixo: false,
     icone: PessoaJuridicaSvg,
     rota: 'pessoas-juridicas',
@@ -20,6 +24,8 @@ export const Abas = [
   },
   {
     ativa: false,
+    categoria: 'Cadastros',
+    descricao: 'Cadastros de pessoas físicas',
     fixo: false,
     icone: PessoaFisicaSvg,
     rota: 'pessoas-fisicas',
@@ -27,6 +33,9 @@ export const Abas = [
   },
   {
     ativa: false,
+    categoria: 'Configurações',
+    // prettier-ignore
+    descricao: 'Locatários e unidades que podem ser alternadas trocando o escopo do sistema',
     fixo: false,
     icone: UnidadeSvg,
     rota: 'mudar-unidade',
