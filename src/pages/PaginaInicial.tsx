@@ -23,9 +23,6 @@ export function PaginaInicial() {
 
   function onContentReady(evento: ContentReadyEvent) {
     setTimeout(() => {
-      console.warn(
-        'PaginaInicial:onContentReady problema sério aqui pois está recriando pagina inicial no evento de abrir menu'
-      );
       evento.component.focus();
     }, 100);
   }

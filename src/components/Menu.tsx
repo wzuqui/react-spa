@@ -5,6 +5,7 @@ import { useEffect, useRef } from 'react';
 
 import { useClickOutside } from '../hooks/useClickOutside';
 import { Abas } from '../shared/abas';
+import { ButtonMenu } from './ButtonMenu';
 
 interface MenuProps {
   aberto: boolean;
@@ -33,7 +34,7 @@ export function Menu(props: MenuProps) {
   useEffect(
     function () {
       if (!aberto) return;
-      // listRef.current?.instance.focus();
+      listRef.current?.instance.focus();
     },
     [aberto]
   );
@@ -41,6 +42,9 @@ export function Menu(props: MenuProps) {
   return (
     <Container ref={ref}>
       <Content aberto={aberto}>
+        <Header>
+          <ButtonMenu onClick={props.acaoFechar} />
+        </Header>
         <List
           collapsibleGroups={true}
           dataSource={dataSource}
@@ -59,7 +63,7 @@ const Content = styled('div', {
   backgroundColor: 'white',
   boxShadow: '0 2px 8px rgba(0, 0, 0, 0.26)',
   height: '100%',
-  position: 'absolute',
+  position: 'fixed',
   top: '0',
   width: '400px',
   zIndex: 999,
@@ -76,6 +80,18 @@ const Content = styled('div', {
       },
     },
   },
+});
+const Header = styled('div', {
+  backgroundColor: '#e9e9e9',
+  borderBottom: '1px solid #5454a0',
+  boxSizing: 'border-box',
+  height: '41px',
+  justifyContent: 'space-between',
+  paddingLeft: '24px',
+  paddingRight: '24px',
+  width: '100%',
+  display: 'flex',
+  alignItems: 'center',
 });
 
 function Item(data: typeof Abas[0]) {

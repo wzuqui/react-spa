@@ -1,6 +1,6 @@
 # Bugs:
 
-- [ ] app está renderizando sempre as rotas quando altera qualquer estado
+- [x] app está renderizando sempre as rotas quando altera qualquer estado
 
 # Features:
 
