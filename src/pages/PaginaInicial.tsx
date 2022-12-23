@@ -8,7 +8,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 
 import LogoSvg from '../assets/logo.svg';
-import { Abas } from '../shared/abas';
+import { Abas, IAba } from '../shared/abas';
 
 export function PaginaInicial() {
   const dataSource = new DataSource({
@@ -74,7 +74,7 @@ const Pesquisar = styled(SelectBox, {
   width: 480,
 });
 
-function Item(data: typeof Abas[0]) {
+function Item(data: IAba) {
   return (
     <ItemContainer>
       <img

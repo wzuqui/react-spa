@@ -1,15 +1,16 @@
 import { styled } from '@stitches/react';
 
 import FecharSvg from '../assets/fechar.svg';
+import { Rotas } from '../shared/rotas';
 
 interface AbaProps {
   ativa: boolean;
   fixo: boolean;
   icone: string;
-  rota: string;
+  rota: Rotas;
   titulo: string;
-  acaoAtivar?: (rota: string) => void;
-  acaoFechar?: (rota: string) => void;
+  acaoAtivar?: (rota: Rotas) => void;
+  acaoFechar?: (rota: Rotas) => void;
 }
 
 export function Aba(props: AbaProps) {

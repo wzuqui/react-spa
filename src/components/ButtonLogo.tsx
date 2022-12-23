@@ -4,11 +4,16 @@ import LogoSvg from '../assets/logo.svg';
 import { Button as ButtonBase } from './Button';
 import { Image as ImageBase } from './Image';
 
-export function ButtonLogo() {
+interface ButtonLogoProps {
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+export function ButtonLogo(props: ButtonLogoProps) {
   return (
     <Button
-      transparent
+      onClick={props.onClick}
       title="Logo"
+      transparent
       type="button"
     >
       <Image

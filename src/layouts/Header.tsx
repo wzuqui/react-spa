@@ -5,10 +5,11 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Aba } from '../components/Aba';
 import { ButtonLogo } from '../components/ButtonLogo';
 import { ButtonMenu } from '../components/ButtonMenu';
-import { Menu } from '../components/Menu';
 import { View } from '../components/View';
 import { Perfil } from '../layouts/Perfil';
 import { Abas } from '../shared/abas';
+import { Rotas } from '../shared/rotas';
+import { Menu } from './Menu';
 
 export function Header() {
   const [abas, setAbas] = useState(Abas);
@@ -26,7 +27,7 @@ export function Header() {
     });
   }, [location]);
 
-  function acaoAbrir(rota: string) {
+  function acaoAbrir(rota: Rotas) {
     setAberto(false);
     setAbas(abas => {
       navigate(rota);
@@ -37,7 +38,7 @@ export function Header() {
     });
   }
 
-  function handleAtivarAba(rota: string) {
+  function acaoAtivarAba(rota: Rotas) {
     setAbas(abas => {
       navigate(rota);
       return abas.map(p => ({
@@ -47,15 +48,14 @@ export function Header() {
     });
   }
 
-  function handleButtonMenu(
+  function acaoAbrirMenu(
     evento: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) {
     evento.stopPropagation();
     setAberto(!aberto);
   }
 
-  function handleFecharAba(rota: string) {
-    // TODO logica completa
+  function acaoFecharAba(rota: Rotas) {
     setAbas(abas.filter(p => p.rota !== rota));
   }
 
@@ -63,8 +63,10 @@ export function Header() {
     <>
       <Container>
         <View gap="8px">
-          <ButtonMenu onClick={handleButtonMenu} />
-          <ButtonLogo />
+          <ButtonMenu onClick={acaoAbrirMenu} />
+          <ButtonLogo
+            onClick={() => acaoAtivarAba('pagina-inicial')}
+          />
           <View
             style={{
               overflow: 'hidden',
@@ -74,8 +76,8 @@ export function Header() {
             {abas.map(p => (
               <Aba
                 key={p.rota}
-                acaoAtivar={p => handleAtivarAba(p)}
-                acaoFechar={p => handleFecharAba(p)}
+                acaoAtivar={acaoAtivarAba}
+                acaoFechar={acaoFecharAba}
                 ativa={p.ativa}
                 fixo={p.fixo}
                 icone={p.icone}

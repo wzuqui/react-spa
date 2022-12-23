@@ -4,13 +4,14 @@ import DataSource from 'devextreme/data/data_source';
 import { ItemClickEvent } from 'devextreme/ui/list';
 import { useEffect, useRef } from 'react';
 
+import { ButtonMenu } from '../components/ButtonMenu';
 import { useClickOutside } from '../hooks/useClickOutside';
-import { Abas } from '../shared/abas';
-import { ButtonMenu } from './ButtonMenu';
+import { Abas, IAba } from '../shared/abas';
+import { Rotas } from '../shared/rotas';
 
 interface MenuProps {
   aberto: boolean;
-  acaoAbrir: (rota: string) => void;
+  acaoAbrir: (rota: Rotas) => void;
   acaoFechar: () => void;
 }
 
@@ -41,9 +42,7 @@ export function Menu(props: MenuProps) {
     [aberto]
   );
 
-  function onItemClick(
-    evento: ItemClickEvent<typeof Abas[0]>
-  ) {
+  function onItemClick(evento: ItemClickEvent<IAba>) {
     if (evento.itemData) {
       props.acaoAbrir(evento.itemData.rota);
     }

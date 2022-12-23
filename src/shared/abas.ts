@@ -3,7 +3,19 @@ import PessoaFisicaSvg from '../assets/pessoa-fisica.svg';
 import PessoaJuridicaSvg from '../assets/pessoa-juridica.svg';
 import UnidadeSvg from '../assets/unidade.svg';
 
-export const Abas = [
+import { Rotas } from './rotas';
+
+export interface IAba {
+  ativa: boolean;
+  categoria: string | null;
+  descricao: string | null;
+  fixo: boolean;
+  icone: string;
+  rota: Rotas;
+  titulo: string;
+}
+
+export const Abas: IAba[] = [
   {
     ativa: true,
     categoria: null,
