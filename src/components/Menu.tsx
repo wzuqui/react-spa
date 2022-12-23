@@ -39,11 +39,8 @@ export function Menu(props: MenuProps) {
   );
 
   return (
-    <Container
-      ref={ref}
-      aberto={aberto}
-    >
-      <Content>
+    <Container ref={ref}>
+      <Content aberto={aberto}>
         <List
           collapsibleGroups={true}
           dataSource={dataSource}
@@ -57,27 +54,28 @@ export function Menu(props: MenuProps) {
   );
 }
 
-const Container = styled('div', {
-  variants: {
-    aberto: {
-      true: {
-        display: 'block',
-      },
-      false: {
-        display: 'none',
-      },
-    },
-  },
-});
+const Container = styled('div', {});
 const Content = styled('div', {
   backgroundColor: 'white',
   boxShadow: '0 2px 8px rgba(0, 0, 0, 0.26)',
   height: '100%',
-  left: '0',
   position: 'absolute',
   top: '0',
   width: '400px',
   zIndex: 999,
+  left: '-400px',
+  transition: 'left 200ms ease-in-out',
+
+  variants: {
+    aberto: {
+      true: {
+        left: 0,
+      },
+      false: {
+        left: '-400px',
+      },
+    },
+  },
 });
 
 function Item(data: typeof Abas[0]) {
