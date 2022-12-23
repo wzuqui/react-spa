@@ -60,39 +60,41 @@ export function Header() {
   }
 
   return (
-    <Container>
-      <View gap="8px">
-        <ButtonMenu onClick={handleButtonMenu} />
-        <ButtonLogo />
-        <View
-          style={{
-            overflow: 'hidden',
-            marginBottom: '-1px',
-          }}
-        >
-          {abas.map(p => (
-            <Aba
-              key={p.rota}
-              acaoAtivar={p => handleAtivarAba(p)}
-              acaoFechar={p => handleFecharAba(p)}
-              ativa={p.ativa}
-              fixo={p.fixo}
-              icone={p.icone}
-              rota={p.rota}
-              titulo={p.titulo}
-            />
-          ))}
+    <>
+      <Container>
+        <View gap="8px">
+          <ButtonMenu onClick={handleButtonMenu} />
+          <ButtonLogo />
+          <View
+            style={{
+              overflow: 'hidden',
+              marginBottom: '-1px',
+            }}
+          >
+            {abas.map(p => (
+              <Aba
+                key={p.rota}
+                acaoAtivar={p => handleAtivarAba(p)}
+                acaoFechar={p => handleFecharAba(p)}
+                ativa={p.ativa}
+                fixo={p.fixo}
+                icone={p.icone}
+                rota={p.rota}
+                titulo={p.titulo}
+              />
+            ))}
+          </View>
         </View>
-      </View>
-      <View>
-        <Perfil />
-      </View>
+        <View alignItems="flexEnd">
+          <Perfil />
+        </View>
+      </Container>
       <Menu
         aberto={aberto}
         acaoAbrir={acaoAbrir}
         acaoFechar={() => setAberto(false)}
       />
-    </Container>
+    </>
   );
 }
 

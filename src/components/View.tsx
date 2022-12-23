@@ -10,6 +10,9 @@ export const View = styled('div', {
       flexStart: {
         alignItems: 'flex-start',
       },
+      flexEnd: {
+        alignItems: 'flex-end',
+      },
     },
     column: {
       true: {
