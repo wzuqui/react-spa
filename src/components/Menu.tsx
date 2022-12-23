@@ -1,6 +1,7 @@
 import { styled } from '@stitches/react';
 import List from 'devextreme-react/list';
 import DataSource from 'devextreme/data/data_source';
+import { ItemClickEvent } from 'devextreme/ui/list';
 import { useEffect, useRef } from 'react';
 
 import { useClickOutside } from '../hooks/useClickOutside';
@@ -9,6 +10,7 @@ import { ButtonMenu } from './ButtonMenu';
 
 interface MenuProps {
   aberto: boolean;
+  acaoAbrir: (rota: string) => void;
   acaoFechar: () => void;
 }
 
@@ -39,6 +41,14 @@ export function Menu(props: MenuProps) {
     [aberto]
   );
 
+  function onItemClick(
+    evento: ItemClickEvent<typeof Abas[0]>
+  ) {
+    if (evento.itemData) {
+      props.acaoAbrir(evento.itemData.rota);
+    }
+  }
+
   return (
     <Container ref={ref}>
       <Content aberto={aberto}>
@@ -52,6 +62,7 @@ export function Menu(props: MenuProps) {
           height="100%"
           itemRender={Item}
           ref={listRef}
+          onItemClick={onItemClick}
         />
       </Content>
     </Container>

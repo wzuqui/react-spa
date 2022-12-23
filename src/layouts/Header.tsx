@@ -16,11 +16,6 @@ export function Header() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  function handleFecharAba(rota: string) {
-    // TODO logica completa
-    setAbas(abas.filter(p => p.rota !== rota));
-  }
-
   useEffect(() => {
     const rota = location.pathname.replace(/^\//g, '');
     setAbas(abas => {
@@ -30,6 +25,17 @@ export function Header() {
       }));
     });
   }, [location]);
+
+  function acaoAbrir(rota: string) {
+    setAberto(false);
+    setAbas(abas => {
+      navigate(rota);
+      return abas.map(p => ({
+        ...p,
+        ativa: p.rota === rota,
+      }));
+    });
+  }
 
   function handleAtivarAba(rota: string) {
     setAbas(abas => {
@@ -46,6 +52,11 @@ export function Header() {
   ) {
     evento.stopPropagation();
     setAberto(!aberto);
+  }
+
+  function handleFecharAba(rota: string) {
+    // TODO logica completa
+    setAbas(abas.filter(p => p.rota !== rota));
   }
 
   return (
@@ -78,6 +89,7 @@ export function Header() {
       </View>
       <Menu
         aberto={aberto}
+        acaoAbrir={acaoAbrir}
         acaoFechar={() => setAberto(false)}
       />
     </Container>
