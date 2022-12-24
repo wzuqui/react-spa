@@ -1,19 +1,24 @@
 import { styled } from '@stitches/react';
 import { SelectBox } from 'devextreme-react/select-box';
-// import DataSource from 'devextreme/data/data_source';
+import DataSource from 'devextreme/data/data_source';
+import { useMemo } from 'react';
 
 import LogoSvg from '../assets/logo.svg';
-// import { Abas, IAba } from '../shared/abas';
+import { Abas } from '../shared/abas';
 
 export function PaginaInicial() {
-  // const dataSource = new DataSource({
-  //   store: {
-  //     type: 'array',
-  //     data: Abas,
-  //     key: 'rota',
-  //   },
-  //   group: 'categoria',
-  // });
+  const dataSource = useMemo(
+    () =>
+      new DataSource({
+        store: {
+          type: 'array',
+          data: Abas,
+          key: 'rota',
+        },
+        group: 'categoria',
+      }),
+    []
+  );
   // const navigate = useNavigate();
 
   // function onContentReady(evento: ContentReadyEvent) {
@@ -35,7 +40,7 @@ export function PaginaInicial() {
         alt="Logo"
       />
       <SelectBox
-        // dataSource={dataSource}
+        dataSource={dataSource}
         displayExpr="titulo"
         grouped={true}
         // itemRender={Item}
