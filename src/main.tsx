@@ -19,7 +19,7 @@ ReactDOM.createRoot(
   <React.StrictMode>
     <MsalProvider instance={pca}>
       <MsalWrapper>
-        <HashRouter basename={import.meta.env.BASE_URL}>
+        <HashRouter>
           <App />
         </HashRouter>
       </MsalWrapper>
