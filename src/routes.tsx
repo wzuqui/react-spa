@@ -1,30 +1,30 @@
-import React from 'react';
-import {
-  Navigate,
-  Route,
-  Routes as ReactRoutes,
-} from 'react-router-dom';
+import { Navigate, Route, Routes as ReactRoutes } from 'react-router-dom';
 
-const PaginaInicial = React.lazy(() =>
-  import('./pages/PaginaInicial').then(p => ({
-    default: p.PaginaInicial,
-  }))
-);
-const MudarUnidade = React.lazy(() =>
-  import('./pages/MudarUnidade').then(p => ({
-    default: p.MudarUnidade,
-  }))
-);
-const PessoasFisicas = React.lazy(() =>
-  import('./pages/PessoasFisicas').then(p => ({
-    default: p.PessoasFisicas,
-  }))
-);
-const PessoasJuridicas = React.lazy(() =>
-  import('./pages/PessoasJuridicas').then(p => ({
-    default: p.PessoasJuridicas,
-  }))
-);
+import { MudarUnidade } from './pages/MudarUnidade';
+import { PaginaInicial } from './pages/PaginaInicial';
+import { PessoasFisicas } from './pages/PessoasFisicas';
+import { PessoasJuridicas } from './pages/PessoasJuridicas';
+
+// const PaginaInicial = React.lazy(() =>
+//   import('./pages/PaginaInicial').then(p => ({
+//     default: p.PaginaInicial,
+//   }))
+// );
+// const MudarUnidade = React.lazy(() =>
+//   import('./pages/MudarUnidade').then(p => ({
+//     default: p.MudarUnidade,
+//   }))
+// );
+// const PessoasFisicas = React.lazy(() =>
+//   import('./pages/PessoasFisicas').then(p => ({
+//     default: p.PessoasFisicas,
+//   }))
+// );
+// const PessoasJuridicas = React.lazy(() =>
+//   import('./pages/PessoasJuridicas').then(p => ({
+//     default: p.PessoasJuridicas,
+//   }))
+// );
 
 export function Routes() {
   return (
@@ -35,33 +35,33 @@ export function Routes() {
       />
       <Route
         element={
-          <React.Suspense>
-            <PaginaInicial />
-          </React.Suspense>
+          // <React.Suspense>
+          <PaginaInicial />
+          // </React.Suspense>
         }
         path="pagina-inicial"
       />
       <Route
         element={
-          <React.Suspense>
-            <MudarUnidade />
-          </React.Suspense>
+          // <React.Suspense>
+          <MudarUnidade />
+          // </React.Suspense>
         }
         path="mudar-unidade"
       />
       <Route
         element={
-          <React.Suspense>
-            <PessoasFisicas />
-          </React.Suspense>
+          // <React.Suspense>
+          <PessoasFisicas />
+          // </React.Suspense>
         }
         path="pessoas-fisicas"
       />
       <Route
         element={
-          <React.Suspense>
-            <PessoasJuridicas />
-          </React.Suspense>
+          // <React.Suspense>
+          <PessoasJuridicas />
+          // </React.Suspense>
         }
         path="pessoas-juridicas"
       />
