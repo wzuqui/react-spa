@@ -17,13 +17,13 @@ ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 ).render(
   <React.StrictMode>
-    <MsalProvider instance={pca}>
-      <MsalWrapper>
-        <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <MsalProvider instance={pca}>
+        <MsalWrapper>
           <App />
-        </BrowserRouter>
-      </MsalWrapper>
-    </MsalProvider>
+        </MsalWrapper>
+      </MsalProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
