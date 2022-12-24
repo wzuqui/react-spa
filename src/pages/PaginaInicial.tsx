@@ -5,20 +5,23 @@ import {
   ContentReadyEvent,
   SelectionChangedEvent,
 } from 'devextreme/ui/select_box';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import LogoSvg from '../assets/logo.svg';
 import { Abas, IAba } from '../shared/abas';
 
 export function PaginaInicial() {
-  const dataSource = new DataSource({
-    store: {
-      type: 'array',
-      data: Abas.filter(p => p.categoria),
-      key: 'rota',
-    },
-    group: 'categoria',
-  });
+  const [dataSource] = useState(
+    new DataSource({
+      store: {
+        type: 'array',
+        data: Abas.filter(p => p.categoria),
+        key: 'rota',
+      },
+      group: 'categoria',
+    })
+  );
   const navigate = useNavigate();
 
   function onContentReady(evento: ContentReadyEvent) {
@@ -29,6 +32,7 @@ export function PaginaInicial() {
 
   function onChange(evento: SelectionChangedEvent) {
     const rota = '/' + evento.selectedItem.rota;
+    console.log(rota);
     navigate(rota);
   }
 
