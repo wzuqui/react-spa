@@ -1,40 +1,32 @@
 import { styled } from '@stitches/react';
 import { SelectBox } from 'devextreme-react/select-box';
 import DataSource from 'devextreme/data/data_source';
-import {
-  ContentReadyEvent,
-  SelectionChangedEvent,
-} from 'devextreme/ui/select_box';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import LogoSvg from '../assets/logo.svg';
 import { Abas, IAba } from '../shared/abas';
 
 export function PaginaInicial() {
-  const [dataSource] = useState(
-    new DataSource({
-      store: {
-        type: 'array',
-        data: Abas.filter(p => p.categoria),
-        key: 'rota',
-      },
-      group: 'categoria',
-    })
-  );
-  const navigate = useNavigate();
+  const dataSource = new DataSource({
+    store: {
+      type: 'array',
+      data: Abas,
+      key: 'rota',
+    },
+    group: 'categoria',
+  });
+  // const navigate = useNavigate();
 
-  function onContentReady(evento: ContentReadyEvent) {
-    setTimeout(() => {
-      evento.component.focus();
-    }, 100);
-  }
+  // function onContentReady(evento: ContentReadyEvent) {
+  //   setTimeout(() => {
+  //     evento.component.focus();
+  //   }, 100);
+  // }
 
-  function onChange(evento: SelectionChangedEvent) {
-    const rota = '/' + evento.selectedItem.rota;
-    console.log(rota);
-    navigate(rota);
-  }
+  // function onChange(evento: SelectionChangedEvent) {
+  //   const rota = '/' + evento.selectedItem.rota;
+  //   console.log(rota);
+  //   navigate(rota);
+  // }
 
   return (
     <Container>
@@ -48,8 +40,8 @@ export function PaginaInicial() {
         grouped={true}
         itemRender={Item}
         noDataText="Sem dados"
-        onContentReady={onContentReady}
-        onSelectionChanged={e => onChange(e)}
+        // onContentReady={onContentReady}
+        // onSelectionChanged={e => onChange(e)}
         placeholder="Pesquisar"
         searchEnabled={true}
         searchExpr={['rota', 'titulo', 'categoria']}
