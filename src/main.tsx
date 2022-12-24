@@ -1,5 +1,5 @@
 import { PublicClientApplication } from '@azure/msal-browser';
-import { useMsal } from '@azure/msal-react';
+import { MsalProvider, useMsal } from '@azure/msal-react';
 import React, { PropsWithChildren } from 'react';
 import ReactDOM from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
@@ -17,13 +17,13 @@ ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 ).render(
   <React.StrictMode>
-    {/* <MsalProvider instance={pca}>
-      <MsalWrapper> */}
-    <HashRouter>
-      <App />
-    </HashRouter>
-    {/* </MsalWrapper>
-    </MsalProvider> */}
+    <MsalProvider instance={pca}>
+      <MsalWrapper>
+        <HashRouter>
+          <App />
+        </HashRouter>
+      </MsalWrapper>
+    </MsalProvider>
   </React.StrictMode>
 );
 

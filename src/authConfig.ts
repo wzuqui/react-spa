@@ -1,27 +1,17 @@
-/*
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * Licensed under the MIT License.
- */
-
 import {
   Configuration,
-  LogLevel,
+  LogLevel
 } from '@azure/msal-browser';
 
-/**
- * Configuration object to be passed to MSAL instance on creation.
- * For a full list of MSAL.js configuration parameters, visit:
- * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/configuration.md
- */
+// prettier-ignore
 export const msalConfig: Configuration = {
   auth: {
     clientId: 'df4c545f-1cd6-43d6-857b-2598c0dbaeca',
-    authority:
-      'https://login.microsoftonline.com/organizations',
+    authority: 'https://login.microsoftonline.com/organizations',
   },
   cache: {
-    cacheLocation: 'sessionStorage', // This configures where your cache will be stored
-    storeAuthStateInCookie: false, // Set this to "true" if you are having issues on IE11 or Edge
+    cacheLocation: 'sessionStorage',
+    storeAuthStateInCookie: false,
   },
   system: {
     loggerOptions: {
@@ -48,20 +38,10 @@ export const msalConfig: Configuration = {
   },
 };
 
-/**
- * Scopes you add here will be prompted for user consent during sign-in.
- * By default, MSAL.js will add OIDC scopes (openid, profile, email) to any login request.
- * For more information about OIDC scopes, visit:
- * https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#openid-connect-scopes
- */
 export const loginRequest = {
   scopes: ['User.Read'],
 };
 
-/**
- * Add here the scopes to request when obtaining an access token for MS Graph API. For more information, see:
- * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/resources-and-scopes.md
- */
 export const graphConfig = {
   graphMeEndpoint: 'https://graph.microsoft.com/v1.0/me',
   graphPhotoEndpoint:

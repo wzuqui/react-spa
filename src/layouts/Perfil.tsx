@@ -1,9 +1,11 @@
+import { useMsal } from '@azure/msal-react';
 import * as Popover from '@radix-ui/react-popover';
 import { styled } from '@stitches/react';
 import { useEffect, useState } from 'react';
 
 import MudarSvg from '../assets/mudar.svg';
 import SairSvg from '../assets/sair.svg';
+import { loginRequest } from '../authConfig';
 import { Avatar } from '../components/Avatar';
 import { Button } from '../components/Button';
 import { Image } from '../components/Image';
@@ -11,39 +13,35 @@ import { Switch } from '../components/Switch';
 import { Text } from '../components/Text';
 import { View } from '../components/View';
 import { Pessoa } from '../layouts/Pessoa';
+import { callMsGraph, callMsGraphPhoto } from '../services/graph';
 
 export function Perfil() {
-  // const { instance, accounts } = useMsal();
+  const { instance, accounts } = useMsal();
   const [foto, setFoto] = useState<string>('');
-  // const [graphData, setGraphData] =
-  //   useState<GraphApi.MeResponse>();
-  const graphData = {
-    displayName: 'Willian Luis Zuqui',
-    mail: 'willianluiszuqui@gmail.com',
-  };
+  const [graphData, setGraphData] = useState<GraphApi.MeResponse>();
 
   useEffect(function () {
-    setFoto('https://github.com/wzuqui.png');
-    //   instance
-    //     .acquireTokenSilent({
-    //       ...loginRequest,
-    //       account: accounts[0],
-    //     })
-    //     .then(response => {
-    //       callMsGraph(response.accessToken).then(response => {
-    //         if (!response) return;
-    //         setGraphData(response);
-    //       });
-    //       callMsGraphPhoto(response.accessToken).then(
-    //         response => {
-    //           if (!response) return;
-    //           setFoto(URL.createObjectURL(response));
-    //         }
-    //       );
-    //     });
+    if (graphData === undefined || foto === '') {
+      (async function () {
+        try {
+          const request = { ...loginRequest, account: accounts[0] };
+          const { accessToken } = await instance.acquireTokenSilent(request);
+          const graph = await callMsGraph(accessToken);
+          if (graph) {
+            setGraphData(graph);
+          }
+          const blob = await callMsGraphPhoto(accessToken);
+          if (blob) {
+            setFoto(URL.createObjectURL(blob));
+          }
+        } catch (error) {
+          console.warn('problema ao obter dados do graph', error);
+        }
+      })();
+    }
   }, []);
 
-  // if (!graphData) return <></>;
+  if (!graphData) return <div></div>;
 
   return (
     <Popover.Root>
