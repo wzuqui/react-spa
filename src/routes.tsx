@@ -1,11 +1,6 @@
 import React from 'react';
 import { Navigate, Route, Routes as ReactRoutes } from 'react-router-dom';
 
-// import { MudarUnidade } from './pages/MudarUnidade';
-// import { PaginaInicial } from './pages/PaginaInicial';
-// import { PessoasFisicas } from './pages/PessoasFisicas';
-// import { PessoasJuridicas } from './pages/PessoasJuridicas';
-
 const PaginaInicial = React.lazy(() =>
   import('./pages/PaginaInicial').then(p => ({
     default: p.PaginaInicial,
