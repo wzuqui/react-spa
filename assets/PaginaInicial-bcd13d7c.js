@@ -1,1 +1,0 @@
-import{j as o,L as t,r as i}from"./index-c22acc1d.js";function e(){return o(n,{children:o(r,{src:t,alt:"Logo"})})}const n=i("div",{alignItems:"center",display:"flex",flex:"1 1 auto",flexDirection:"column",height:"100%",width:"100%"}),r=i("img",{marginBottom:64,marginTop:64,width:480});export{e as PaginaInicial};
