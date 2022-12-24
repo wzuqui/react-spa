@@ -12,6 +12,8 @@
     "start": "vite"
   },
   "dependencies": {
+    "@azure/msal-browser": "^2.32.1",
+    "@azure/msal-react": "^1.5.1",
     "@radix-ui/react-popover": "1.0.2",
     "@stitches/react": "^1.2.8",
     "devextreme": "^22.1.3",
