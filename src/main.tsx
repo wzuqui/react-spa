@@ -2,7 +2,7 @@ import { PublicClientApplication } from '@azure/msal-browser';
 import { MsalProvider, useMsal } from '@azure/msal-react';
 import React, { PropsWithChildren } from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 import { App } from './App';
 import { msalConfig } from './authConfig';
@@ -17,13 +17,13 @@ ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 ).render(
   <React.StrictMode>
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
-      <MsalProvider instance={pca}>
-        <MsalWrapper>
+    <MsalProvider instance={pca}>
+      <MsalWrapper>
+        <HashRouter basename={import.meta.env.BASE_URL}>
           <App />
-        </MsalWrapper>
-      </MsalProvider>
-    </BrowserRouter>
+        </HashRouter>
+      </MsalWrapper>
+    </MsalProvider>
   </React.StrictMode>
 );
 
