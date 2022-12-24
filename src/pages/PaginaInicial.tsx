@@ -1,5 +1,5 @@
 import { styled } from '@stitches/react';
-// import { SelectBox } from 'devextreme-react/select-box';
+import { SelectBox } from 'devextreme-react/select-box';
 // import DataSource from 'devextreme/data/data_source';
 
 import LogoSvg from '../assets/logo.svg';
@@ -33,6 +33,19 @@ export function PaginaInicial() {
       <Logo
         src={LogoSvg}
         alt="Logo"
+      />
+      <SelectBox
+        // dataSource={dataSource}
+        displayExpr="titulo"
+        grouped={true}
+        // itemRender={Item}
+        noDataText="Sem dados"
+        // onContentReady={onContentReady}
+        // onSelectionChanged={e => onChange(e)}
+        placeholder="Pesquisar"
+        searchEnabled={true}
+        searchExpr={['rota', 'titulo', 'categoria']}
+        valueExpr="rota"
       />
       {/* 
       <Pesquisar
