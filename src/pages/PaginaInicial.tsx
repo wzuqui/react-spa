@@ -1,19 +1,19 @@
 import { styled } from '@stitches/react';
-import { SelectBox } from 'devextreme-react/select-box';
-import DataSource from 'devextreme/data/data_source';
+// import { SelectBox } from 'devextreme-react/select-box';
+// import DataSource from 'devextreme/data/data_source';
 
 import LogoSvg from '../assets/logo.svg';
-import { Abas, IAba } from '../shared/abas';
+// import { Abas, IAba } from '../shared/abas';
 
 export function PaginaInicial() {
-  const dataSource = new DataSource({
-    store: {
-      type: 'array',
-      data: Abas,
-      key: 'rota',
-    },
-    group: 'categoria',
-  });
+  // const dataSource = new DataSource({
+  //   store: {
+  //     type: 'array',
+  //     data: Abas,
+  //     key: 'rota',
+  //   },
+  //   group: 'categoria',
+  // });
   // const navigate = useNavigate();
 
   // function onContentReady(evento: ContentReadyEvent) {
@@ -34,6 +34,7 @@ export function PaginaInicial() {
         src={LogoSvg}
         alt="Logo"
       />
+      {/* 
       <Pesquisar
         dataSource={dataSource}
         displayExpr="titulo"
@@ -46,7 +47,7 @@ export function PaginaInicial() {
         searchEnabled={true}
         searchExpr={['rota', 'titulo', 'categoria']}
         valueExpr="rota"
-      />
+      /> */}
     </Container>
   );
 }
@@ -66,33 +67,33 @@ const Logo = styled('img', {
   width: 480,
 });
 
-const Pesquisar = styled(SelectBox, {
-  width: 480,
-});
+// const Pesquisar = styled(SelectBox, {
+//   width: 480,
+// });
 
-function Item(data: IAba) {
-  return (
-    <ItemContainer>
-      <img
-        src={data.icone}
-        alt={data.titulo}
-        height={24}
-      />
-      <div>
-        <b>{data.titulo}</b>
-        <p>{data.descricao}</p>
-      </div>
-    </ItemContainer>
-  );
-}
+// function Item(data: IAba) {
+//   return (
+//     <ItemContainer>
+//       <img
+//         src={data.icone}
+//         alt={data.titulo}
+//         height={24}
+//       />
+//       <div>
+//         <b>{data.titulo}</b>
+//         <p>{data.descricao}</p>
+//       </div>
+//     </ItemContainer>
+//   );
+// }
 
-const ItemContainer = styled('div', {
-  display: 'flex',
-  alignItems: 'center',
-  gap: '8px',
-  width: '100%',
+// const ItemContainer = styled('div', {
+//   display: 'flex',
+//   alignItems: 'center',
+//   gap: '8px',
+//   width: '100%',
 
-  '> div': {
-    whiteSpace: 'normal',
-  },
-});
+//   '> div': {
+//     whiteSpace: 'normal',
+//   },
+// });
