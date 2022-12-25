@@ -1,0 +1,1 @@
+import{dW as s}from"./index-2d1806a6.js";import{H as i}from"./historico.service-c2617a97.js";function o(){return new i().atualiza("acesso","pessoas-juridicas"),s("h1",{children:"Pessoas jurídicas"})}export{o as PessoasJuridicas};
