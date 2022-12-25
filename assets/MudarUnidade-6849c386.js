@@ -1,0 +1,1 @@
+import{dX as r}from"./index-1679c9ec.js";import{H as a}from"./historico.service-43299ee0.js";function e(){return new a().atualiza("acesso","mudar-unidade"),r("h1",{children:"Mudar unidade"})}export{e as MudarUnidade};
