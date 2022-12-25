@@ -72,9 +72,9 @@ const Container = styled('div', {
 });
 
 const Logo = styled('img', {
-  marginBottom: 40,
-  marginTop: 40,
-  width: 480,
+  marginBottom: 20,
+  marginTop: 20,
+  width: 240,
 });
 
 const Pesquisar = styled(SelectBox, {

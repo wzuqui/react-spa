@@ -39,10 +39,10 @@ export function Historico({ acaoAbrir, ...props }: HistoricoProps) {
         >
           <Titulo>{transformarCamelCaseEmTexto(key)}</Titulo>
           <TileView
-            baseItemHeight={100}
-            baseItemWidth={130}
+            baseItemHeight={90}
+            baseItemWidth={120}
             direction="vertical"
-            height={150}
+            height={140}
             itemRender={data => (
               <HistoricoItem
                 rota={data.rota}
