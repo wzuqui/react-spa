@@ -8,6 +8,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 
 import LogoSvg from '../assets/logo.svg';
+import { Historico } from '../layouts/Historico';
 import { Abas, IAba } from '../shared/abas';
 
 export function PaginaInicial() {
@@ -20,6 +21,10 @@ export function PaginaInicial() {
     group: 'categoria',
   });
   const navigate = useNavigate();
+
+  function acaoAbrir(rota: string) {
+    navigate('/' + rota);
+  }
 
   function onContentReady(evento: ContentReadyEvent) {
     setTimeout(() => {
@@ -39,7 +44,6 @@ export function PaginaInicial() {
         src={LogoSvg}
         alt="Logo"
       />
-
       <Pesquisar
         dataSource={dataSource}
         displayExpr="titulo"
@@ -53,6 +57,7 @@ export function PaginaInicial() {
         searchExpr={['rota', 'titulo', 'categoria']}
         valueExpr="rota"
       />
+      <Historico acaoAbrir={acaoAbrir} />
     </Container>
   );
 }
@@ -67,8 +72,8 @@ const Container = styled('div', {
 });
 
 const Logo = styled('img', {
-  marginBottom: 64,
-  marginTop: 64,
+  marginBottom: 40,
+  marginTop: 40,
   width: 480,
 });
 

@@ -13,9 +13,7 @@ import './styles.css';
 
 const pca = new PublicClientApplication(msalConfig);
 
-ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-).render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <MsalProvider instance={pca}>
       <MsalWrapper>

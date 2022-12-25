@@ -14,8 +14,8 @@ export function App() {
       <Header />
       <Main
         column
-        style={{ overflow: 'hidden' }}
         full
+        style={{ overflow: 'hidden' }}
       >
         <MainContent>
           <Routes />
