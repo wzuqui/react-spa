@@ -1,0 +1,1 @@
+import{dW as s}from"./index-7094fbcc.js";import{H as i}from"./historico.service-c1c40b31.js";function e(){return new i().atualiza("acesso","pessoas-fisicas"),s("h1",{children:"Pessoas físicas"})}export{e as PessoasFisicas};
