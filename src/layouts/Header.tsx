@@ -1,4 +1,3 @@
-import { styled } from '@stitches/react';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -9,6 +8,7 @@ import { View } from '../components/View';
 import { Perfil } from '../layouts/Perfil';
 import { Abas } from '../shared/abas';
 import { Rotas } from '../shared/rotas';
+import { styled } from '../styled';
 import { Menu } from './Menu';
 
 export function Header() {
@@ -64,9 +64,7 @@ export function Header() {
       <Container>
         <View gap="8px">
           <ButtonMenu onClick={acaoAbrirMenu} />
-          <ButtonLogo
-            onClick={() => acaoAtivarAba('pagina-inicial')}
-          />
+          <ButtonLogo onClick={() => acaoAtivarAba('pagina-inicial')} />
           <View
             style={{
               overflow: 'hidden',

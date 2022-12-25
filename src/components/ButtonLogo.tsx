@@ -1,6 +1,5 @@
-import { styled } from '@stitches/react';
-
 import LogoSvg from '../assets/logo.svg';
+import { styled } from '../styled';
 import { Button as ButtonBase } from './Button';
 import { Image as ImageBase } from './Image';
 

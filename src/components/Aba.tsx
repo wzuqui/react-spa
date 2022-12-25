@@ -1,7 +1,6 @@
-import { styled } from '@stitches/react';
-
 import FecharSvg from '../assets/fechar.svg';
 import { Rotas } from '../shared/rotas';
+import { styled } from '../styled';
 
 interface AbaProps {
   ativa: boolean;
@@ -22,9 +21,7 @@ export function Aba(props: AbaProps) {
     }
   }
 
-  function handleFechar(
-    evento: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) {
+  function handleFechar(evento: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     evento.stopPropagation();
 
     if (props.acaoFechar) {

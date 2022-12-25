@@ -1,6 +1,5 @@
 import { useMsal } from '@azure/msal-react';
 import * as Popover from '@radix-ui/react-popover';
-import { styled } from '@stitches/react';
 import { useEffect, useState } from 'react';
 
 import MudarSvg from '../assets/mudar.svg';
@@ -14,6 +13,7 @@ import { Text } from '../components/Text';
 import { View } from '../components/View';
 import { Pessoa } from '../layouts/Pessoa';
 import { callMsGraph, callMsGraphPhoto } from '../services/graph';
+import { styled } from '../styled';
 
 export function Perfil() {
   const { instance, accounts } = useMsal();

@@ -1,6 +1,5 @@
-import { styled } from '@stitches/react';
-
 import MenuSvg from '../assets/menu.svg';
+import { styled } from '../styled';
 import { Button as ButtonBase } from './Button';
 
 interface ButtonMenuProps {

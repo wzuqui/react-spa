@@ -1,4 +1,3 @@
-import { styled } from '@stitches/react';
 import { SelectBox } from 'devextreme-react/select-box';
 import DataSource from 'devextreme/data/data_source';
 import {
@@ -10,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import LogoSvg from '../assets/logo.svg';
 import { Historico } from '../layouts/Historico';
 import { Abas, IAba } from '../shared/abas';
+import { styled } from '../styled';
 
 export function PaginaInicial() {
   const dataSource = new DataSource({

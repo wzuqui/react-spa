@@ -1,7 +1,12 @@
-import { styled } from '@stitches/react';
+import { styled } from '../styled';
 
 export function Switch(props: React.InputHTMLAttributes<HTMLInputElement>) {
-  return <Input type="checkbox" {...props} />;
+  return (
+    <Input
+      type="checkbox"
+      {...props}
+    />
+  );
 }
 
 const Input = styled('input', {

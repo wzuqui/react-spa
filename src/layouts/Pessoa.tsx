@@ -1,7 +1,6 @@
-import { styled } from '@stitches/react';
 import { Avatar } from '../components/Avatar';
-
 import { View } from '../components/View';
+import { styled } from '../styled';
 
 interface PessoaProps {
   nome: string;
@@ -15,8 +14,14 @@ export function Pessoa(props: PessoaProps) {
 
   return (
     <Container style={props.style}>
-      <Avatar src={foto} alt={nome} />
-      <View column alignItems="flexStart">
+      <Avatar
+        src={foto}
+        alt={nome}
+      />
+      <View
+        column
+        alignItems="flexStart"
+      >
         <b>{nome}</b>
         <div>{empresa}</div>
       </View>

@@ -1,4 +1,3 @@
-import { styled } from '@stitches/react';
 import List from 'devextreme-react/list';
 import DataSource from 'devextreme/data/data_source';
 import { ItemClickEvent } from 'devextreme/ui/list';
@@ -8,6 +7,7 @@ import { ButtonMenu } from '../components/ButtonMenu';
 import { useClickOutside } from '../hooks/useClickOutside';
 import { Abas, IAba } from '../shared/abas';
 import { Rotas } from '../shared/rotas';
+import { styled } from '../styled';
 
 interface MenuProps {
   aberto: boolean;
@@ -28,11 +28,7 @@ export function Menu(props: MenuProps) {
     group: 'categoria',
   });
 
-  useClickOutside(
-    ref,
-    () => aberto && props.acaoFechar(),
-    aberto
-  );
+  useClickOutside(ref, () => aberto && props.acaoFechar(), aberto);
 
   useEffect(
     function () {

@@ -1,4 +1,4 @@
-import { styled } from '@stitches/react';
+import { styled } from '../styled';
 
 export const Text = styled('p', {
   variants: {

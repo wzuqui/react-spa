@@ -1,9 +1,8 @@
-import { styled } from '@stitches/react';
-
 import { View } from './components/View';
 import { Header } from './layouts/Header';
 import { Main } from './layouts/Main';
 import { Routes } from './routes';
+import { styled } from './styled';
 
 export function App() {
   return (
