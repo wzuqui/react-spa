@@ -27,6 +27,7 @@ export const { styled } = createStitches({
     },
     shadows: {
       boxShadow: 'rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px',
+      perfil: 'rgb(0 0 0 / 25%) 2px 2px 5px',
     },
     sizes: {},
     space: {
